@@ -1,3 +1,5 @@
+import pytest
+
 import freethetrails.utilities as utl
 
 
@@ -25,3 +27,11 @@ def test_trail_str():
     assert str(length) in str(my_trail)
     assert str(rating) in str(my_trail)
     assert name in str(my_trail)
+
+
+def test_parse_trails():
+    url = r"https://www.alltrails.com/us/washington/everett"
+    trails = utl.parse_trails(url)
+
+    assert 'https://www.alltrails.com/trail/us/washington/howarth-park-trail' in trails
+
